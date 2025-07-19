@@ -41,11 +41,7 @@ if uploaded_file:
     # Glaucoma Prediction
     glaucoma_prediction = predict_glaucoma(img)
 
-    if uploaded_file is not None and uploaded_file.name == "kfr.jpg":
-        st.warning('Kayser-Fleischer rings detected!')
-    elif uploaded_file is not None and uploaded_file.name == "glaucoma.png":
-        st.warning('Glaucoma Positive!')
-    elif kfr_prediction > 0.5 and glaucoma_prediction > 0.5:
+    if kfr_prediction > 0.5 and glaucoma_prediction > 0.5:
         if kfr_prediction > glaucoma_prediction:
             st.warning('Kayser-Fleischer rings detected!')
         else:
